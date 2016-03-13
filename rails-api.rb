@@ -445,8 +445,8 @@ test:
     gsub_file 'database.yml', /\n{1,}$/, "\n"
 
     gsub_file 'database.yml', /database: #{@app_name}_(development|test|production)/, "database: <%= ENV['database_name'] %>"
-    gsub_file 'database.yml', /username: #{@app_name}/, "username: <%= ENV['database_username'] %>"
-    gsub_file 'database.yml', /password: <%= ENV[\'#{@app_name}_DATABASE_PASSWORD\'] %>/, "password: <%= ENV['database_password'] %>"
+    gsub_file 'database.yml', "username: #{@app_name}", "username: <%= ENV['database_username'] %>"
+    gsub_file 'database.yml', "password: <%= ENV[\'#{@app_name.upcase}_DATABASE_PASSWORD\'] %>", "password: <%= ENV['database_password'] %>"
   end
 
   run "spring stop"
