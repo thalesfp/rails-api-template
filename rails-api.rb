@@ -1,7 +1,7 @@
 Paperclip = yes?("Add Paperclip for file upload?")
 AWS = yes?("Add AWS SDK?")
 Knock = yes?("Add Knock for authentication?")
-Figaro = yes?("Use figaro for configuration?")
+Figaro = yes?("Add Figaro for configuration?")
 Heroku = yes?("Will you deploy to Heroku?")
 
 # Remove comments
@@ -133,7 +133,7 @@ config/application.yml
 
   inside 'config' do
 
-    BR = yes?("Configure i18n default locale to pt-BR?")
+    BR = yes?("Change i18n default locale to pt-BR?")
 
     insert_into_file 'application.rb', after: "# config.i18n.default_locale = :de\n" do <<-EOF
     config.i18n.default_locale = 'pt-BR'
