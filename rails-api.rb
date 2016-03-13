@@ -5,7 +5,7 @@ Figaro = yes?("Use figaro for configuration?")
 Heroku = yes?("Will you deploy to Heroku?")
 
 # Remove comments
-gsub_file 'Gemfile', /^#.*$\n/, ''
+gsub_file 'Gemfile', /(^#.*\n*)|(^\n{2,})$/, ''
 gsub_file 'Gemfile', "gem 'spring', :group => :development\n\n", '' 
 
 insert_into_file 'Gemfile', after: "source 'https://rubygems.org'\n" do <<-EOF
