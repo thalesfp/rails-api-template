@@ -197,12 +197,14 @@ test:
 
   run "spring stop"
 
-  generate(:migration, "enable_uuid_extension")
+  UUID = yes?("Configure PostgreSQL UUID?")
+
+  generate(:migration, "enable_uuid_extension") if UUID
 
   insert_into_file Dir['db/migrate/*_enable_uuid_extension.rb'].first, after: "def change\n" do <<-EOF
     enable_extension 'uuid-ossp'
   EOF
-  end if yes?("Configure PostgreSQL UUID?")
+  end if UUID
 
   generate "rspec:install"
   generate "knock:install" if Knock
