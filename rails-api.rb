@@ -10,6 +10,7 @@ AWS = yes?("Add AWS SDK?")
 Knock = yes?("Add Knock for authentication?")
 Figaro = yes?("Add Figaro for configuration?")
 Heroku = yes?("Will you deploy to Heroku?")
+UUID = yes?("Configure PostgreSQL UUID?")
 
 # Remove comments
 gsub_file 'Gemfile', /(^#.*\n*)|(^\n{2,})$/, ''
@@ -22,6 +23,8 @@ EOF
 end
 
 # Gems
+
+gem 'ar-uuid'
 
 gem 'versionist'
 gem 'rack-cors', :require => 'rack/cors'
@@ -196,8 +199,6 @@ test:
   end
 
   run "spring stop"
-
-  UUID = yes?("Configure PostgreSQL UUID?")
 
   generate(:migration, "enable_uuid_extension") if UUID
 
