@@ -1,8 +1,7 @@
 # Add the current directory to the path Thor uses
 # to look up files
 def source_paths
-  [File.expand_path(File.dirname(__FILE__))] + Array(super)
-    
+  [File.expand_path(File.dirname(__FILE__))] + Array(super) 
 end
 
 Paperclip = yes?("Add Paperclip for file upload?")
