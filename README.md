@@ -28,3 +28,7 @@ Others
 * Cors configuration to any origin
 * Default timezone: Brasilia
 * Default locale: pt-BR
+
+# Usage
+
+```rails new blog -m https://raw.githubusercontent.com/thalesfp/rails-api-template/master/rails-api.rb```
