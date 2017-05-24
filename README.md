@@ -31,4 +31,4 @@ Others
 
 # Usage
 
-```rails new blog -m https://raw.githubusercontent.com/thalesfp/rails-api-template/master/rails-api.rb```
+```rails new my-awesome-api -m https://raw.githubusercontent.com/thalesfp/rails-api-template/master/rails-api.rb```
